@@ -16,17 +16,17 @@ public class ScreenGame(int columns = 10, int rows = 10, string icon = "-")
         return screen;
     }
 
-    static public void Insert(int[] newPosition, string[,] screen, string newIcon)
+    public void Insert(int[] newPosition, string newIcon)
     {
-        for (int row = 0; row < screen.GetLength(0); row++)
+        for (int row = 0; row < Screen.GetLength(0); row++)
         {
             if (row == newPosition[1])
             {
-                for (int column = 0; column < screen.GetLength(1); column++)
+                for (int column = 0; column < Screen.GetLength(1); column++)
                 {
                     if (column == newPosition[0])
                     {
-                        screen[row, column] = newIcon;
+                        Screen[row, column] = newIcon;
                         break;
                     }
                 }
@@ -49,7 +49,7 @@ public class ScreenGame(int columns = 10, int rows = 10, string icon = "-")
     public void Update(int[] newPosition, string newIcon)
     {
         Screen = InitScreen(ColumnLength, RowLength, ScreenBackgroundIcon);
-        Insert(newPosition, Screen, newIcon);
+        Insert(newPosition, newIcon);
     }
 
     public void Update(int[,] newPositions, string newIcon)
@@ -60,7 +60,7 @@ public class ScreenGame(int columns = 10, int rows = 10, string icon = "-")
             int column = newPositions[i, 0];
             int row = newPositions[i, 1]; ;
             int[] newPosition = [column, row];
-            Insert(newPosition, Screen, newIcon);
+            Insert(newPosition, newIcon);
         }
     }
 }
