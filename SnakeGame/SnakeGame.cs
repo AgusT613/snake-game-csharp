@@ -38,23 +38,16 @@ public class SnakeGame(ScreenGame screen, Food food, Player player)
         FoodPositionsList = GetFoodPositionsList(screen.ColumnLength, screen.RowLength);
     }
 
-    public void MovePlayer(string? direction)
+    public void MovePlayer(ConsoleKey direction)
     {
-        switch (direction)
-        {
-            case "w":
-                Player.Y--;
-                break;
-            case "s":
-                Player.Y++;
-                break;
-            case "d":
-                Player.X++;
-                break;
-            case "a":
-                Player.X--;
-                break;
-        }
+        if (direction == ConsoleKey.W || direction == ConsoleKey.UpArrow)
+            Player.Y--;
+        else if (direction == ConsoleKey.S || direction == ConsoleKey.DownArrow)
+            Player.Y++;
+        else if (direction == ConsoleKey.D || direction == ConsoleKey.RightArrow)
+            Player.X++;
+        else if (direction == ConsoleKey.A || direction == ConsoleKey.LeftArrow)
+            Player.X--;
 
         if (Player.X < 0)
             Player.X = screen.ColumnLength - 1;

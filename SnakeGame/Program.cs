@@ -21,7 +21,7 @@ while (true)
     }
     else
     {
-        string? direction = Console.ReadLine();
+        ConsoleKey direction = Console.ReadKey().Key;
         snakeGame.MovePlayer(direction);
         snakeGame.CheckPlayerGetFood(player.X, player.Y);
     }
